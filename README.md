@@ -26,5 +26,6 @@ upon sequential entry of konami code says something
 
 # requires
 
-    [PR#553](https://github.com/MycroftAI/mycroft-core/issues/553)
-    [PR#539](https://github.com/MycroftAI/mycroft-core/pull/539)
+[De-register Intents PR#553](https://github.com/MycroftAI/mycroft-core/issues/553)
+
+[Converse Method PR#539](https://github.com/MycroftAI/mycroft-core/pull/539)
