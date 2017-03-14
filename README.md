@@ -1,6 +1,6 @@
 # mycroft---konami-code
 
-upon sequential entry of konami code says something
+upon sequential entry of konami code execute user script
 
 # usage
 
@@ -19,7 +19,8 @@ upon sequential entry of konami code says something
     b
     -> register a
     a
-    -> speak God Mode Activated
+    -> speak cheat code unlocked
+    -> execute cheat_code.py
     
  bad sequence resets input (require converse method)
     
