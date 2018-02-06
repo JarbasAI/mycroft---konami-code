@@ -5,6 +5,10 @@ from mycroft.util.log import getLogger
 
 from os.path import dirname, exists
 
+# make cheat code discoverable
+import sys
+sys.path.append(dirname(__file__))
+
 __author__ = 'jarbas'
 
 LOGGER = getLogger(__name__)
@@ -19,8 +23,6 @@ class KonamiCodeSkill(MycroftSkill):
         self.reload_skill = False
         self.counter = 0
         self.next_cheat = "up"
-
-
 
     def initialize(self):
         
@@ -48,8 +50,11 @@ class KonamiCodeSkill(MycroftSkill):
         self.register_intent(right_intent, self.handle_right_intent)
         self.register_intent(b_intent, self.handle_b_intent)
         self.register_intent(a_intent, self.handle_a_intent)
-
-
+        self.disable_intent('KonamiDownIntent')
+        self.disable_intent('KonamiLeftIntent')
+        self.disable_intent('KonamiRightIntent')
+        self.disable_intent('KonamiBIntent')
+        self.disable_intent('KonamiAIntent')
 
     def handle_up_intent(self, message):
         self.disable_intent('KonamiDownIntent')
@@ -100,7 +105,6 @@ class KonamiCodeSkill(MycroftSkill):
         self.disable_intent('KonamiBIntent')
         self.enable_intent('KonamiAIntent')
         self.next_cheat = "a"
-
 
     def handle_a_intent(self, message):
         if not self.cheat_code_script:

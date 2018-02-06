@@ -1,32 +1,24 @@
 # mycroft---konami-code
 
-upon sequential entry of konami code execute user script
+Konami code, cheat code
+
 
 # usage
 
     up
     up
-    ->register down intent
     down
     down
-    -> register left
-    left 
-    -> register right
+    left
     right
-    -> register left
-    left 
-    -> register b
+    left
     b
-    -> register a
     a
-    -> speak cheat code unlocked
-    -> execute cheat_code.py
+    * executes cheat code script
     
- bad sequence resets input (require converse method)
-    
+ bad sequence resets input
 
-# requires
 
-[De-register Intents PR#553](https://github.com/MycroftAI/mycroft-core/issues/553)
+# TODO
 
-[Converse Method PR#539](https://github.com/MycroftAI/mycroft-core/pull/539)
+configurable script path
