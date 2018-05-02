@@ -129,10 +129,9 @@ class KonamiCodeSkill(MycroftSkill):
         self.disable_intent('KonamiAIntent')
         self.enable_intent('KonamiUpIntent')
 
-
     # reset code input on invalid utterance
-    def converse(self, transcript, lang="en-us"):
-        if self.next_cheat not in transcript:
+    def converse(self, utterances, lang="en-us"):
+        if self.next_cheat not in transcript[0]:
             self.enable_intent('KonamiUpIntent')
             self.disable_intent('KonamiDownIntent')
             self.disable_intent('KonamiLeftIntent')
@@ -144,7 +143,14 @@ class KonamiCodeSkill(MycroftSkill):
         return False
 
     def stop(self):
-        pass
+        self.enable_intent('KonamiUpIntent')
+        self.disable_intent('KonamiDownIntent')
+        self.disable_intent('KonamiLeftIntent')
+        self.disable_intent('KonamiRightIntent')
+        self.disable_intent('KonamiBIntent')
+        self.disable_intent('KonamiAIntent')
+        self.next_cheat = "up"
+        self.counter = 0
 
 
 def create_skill():
