@@ -62,7 +62,7 @@ class KonamiCodeSkill(MycroftSkill):
         self.disable_intent('KonamiRightIntent')
         self.disable_intent('KonamiBIntent')
         self.disable_intent('KonamiAIntent')
-        self.speak_dialog("up")
+        self.speak_dialog("up", expect_response=True)
         self.counter += 1
         if self.counter == 2:
             self.disable_intent('KonamiUpIntent')
@@ -71,7 +71,7 @@ class KonamiCodeSkill(MycroftSkill):
             self.next_cheat = "down"
 
     def handle_down_intent(self, message):
-        self.speak_dialog("down")
+        self.speak_dialog("down", expect_response=True)
         self.counter += 1
         if self.counter == 2:
             self.disable_intent('KonamiDownIntent')
@@ -80,13 +80,13 @@ class KonamiCodeSkill(MycroftSkill):
             self.next_cheat = "left"
 
     def handle_left_intent(self, message):
-        self.speak_dialog("left")
+        self.speak_dialog("left", expect_response=True)
         self.disable_intent('KonamiLeftIntent')
         self.enable_intent("KonamiRightIntent")
         self.next_cheat = "right"
 
     def handle_right_intent(self, message):
-        self.speak_dialog("right")
+        self.speak_dialog("right", expect_response=True)
         self.counter += 1
         self.disable_intent('KonamiRightIntent')
         self.enable_intent("KonamiLeftIntent")
@@ -98,7 +98,7 @@ class KonamiCodeSkill(MycroftSkill):
             self.next_cheat = "b"
 
     def handle_b_intent(self, message):
-        self.speak_dialog("b")
+        self.speak_dialog("b", expect_response=True)
         self.disable_intent('KonamiDownIntent')
         self.disable_intent('KonamiLeftIntent')
         self.disable_intent('KonamiRightIntent')
